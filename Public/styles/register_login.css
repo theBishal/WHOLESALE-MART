@@ -3,7 +3,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 body {
@@ -296,3 +295,15 @@ button:active {
 }
 
 /* social container */
+
+.selec {
+  display: flex;
+  flex-direction: row;
+  margin-right: 40vh;
+  justify-content: space-between;
+  align-items: start;
+}
+#acc_type {
+  font-weight: 500;
+  font-display: block;
+}
