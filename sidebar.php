@@ -29,22 +29,22 @@
                     </li>
                     <li>
                         <a class="s-sidebar__nav-link" href="#0">
-                            <i class="fa fa-product-hunt" aria-hidden="true"></i><em>Dashboard</em>
+                            <i class='fa fa-dashboard'></i><em>Dashboard</em>
                         </a>
                     </li>
                     <li>
                         <a class="s-sidebar__nav-link" href="./product.php">
-                            <i class="fa fa-camera"></i><em>Product</em>
+                            <i class="fa fa-product-hunt" aria-hidden="true"></i><em>Product</em>
                         </a>
                     </li>
                     <li>
                         <a class="s-sidebar__nav-link" href="./addproduct.php">
-                            <i class="fa fa-camera"></i><em>Add Product</em>
+                            <i class="fa fa-plus" aria-hidden="true"></i><em>Add Product</em>
                         </a>
                     </li>
                     <li>
                         <a class="s-sidebar__nav-link" href="./Controller/logout.php">
-                            <i class="fa fa-camera"></i><em>Log Out</em>
+                            <i class="fa fa-sign-out" aria-hidden="true"></i><em>Log Out</em>
                         </a>
                     </li>
                 </ul>

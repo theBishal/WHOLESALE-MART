@@ -21,7 +21,7 @@
         <hr>
         <div class="panel-body">
 
-            <form action="./Controller/addProduct.php" method="post" class="form-horizontal" role="form">
+            <form action="./Controller/addProduct.php" method="post" class="form-horizontal my-4 " role="form">
 
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Product Name:</label>

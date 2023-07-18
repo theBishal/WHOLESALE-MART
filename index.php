@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION['email'])) {
     header("location: ./register_login.php");
 }
@@ -21,7 +22,9 @@ if (!isset($_SESSION['email'])) {
         <div id="text_hero">
             <h3>Looking for best Deal??</h3>
             <h1>WHOLESALE-MART</h1>
-            <p>WHOLESALE-MART is a platform where you can buy and sell products in bulk.</p>
+            <p>WHOLESALE-MART serves as a centralized hub where dealers and retailers <br>
+                can register and effortlessly connect with each other.</p>
+            <hr class="border border-success">
             <a href="./dealers.php" class="btn btn-primary ">View Dealers</a>
         </div>
 

@@ -17,8 +17,7 @@ if ($status == "ava") {
 $sql  = "INSERT INTO product (product_name,product_description,stock,status,product_image,dealer_id) VALUES ('$product_name','$product_description','$stock','$status','$product_image','$dealer_id')";
 
 if (mysqli_query($conn, $sql)) {
-    echo ("<script>alert('Product Added Successfully!')</script>");
-    // header("location: ../product.php");
+    header("location: ../product.php");
 } else {
     echo "ERROR: Hush! Sorry $sql. "
         . mysqli_error($conn);

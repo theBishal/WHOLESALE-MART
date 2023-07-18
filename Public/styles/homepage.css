@@ -15,4 +15,13 @@
 }
 #hero h1 {
   color: #088178;
+  font-size: 3rem;
+}
+#hero h3 {
+  color: #fda039;
+  font-size: 30px;
+}
+#hero p {
+  color: red;
+  font-style: italic;
 }

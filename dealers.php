@@ -1,6 +1,7 @@
 <?php
 require_once("./Model/db.php");
 session_start();
+
 $query = 'select * from user where acc_type = "Dealer"';
 $result = mysqli_query($conn, $query);
 
@@ -20,7 +21,7 @@ $result = mysqli_query($conn, $query);
 <body>
     <?php include 'sidebar.php'; ?>
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-        <div class="card w-75">
+        <div class="card mx-auto w-50  mb-3">
             <div class="card-body">
                 <img src="./Public/images/undraw_profile.svg" alt="logo" class="logo">
                 <div class="item">
@@ -41,7 +42,7 @@ $result = mysqli_query($conn, $query);
                 </div>
                 <div class="item3">
                     <a href="#" class="btn btn-primary">Contact</a>
-                    <a href="#" class="btn btn-primary">View Product</a>
+                    <a href="./product.php" class="btn btn-primary">View Product</a>
                     <a href="#" class="btn btn-primary">Request For Price</a>
                 </div>
             </div>

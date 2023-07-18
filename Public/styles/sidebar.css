@@ -76,6 +76,7 @@ a {
   width: 15em;
   height: 100%;
   background-color: #020617;
+  color: white;
 }
 
 .s-sidebar__nav:hover,
@@ -173,4 +174,12 @@ a {
   .s-sidebar__nav ul {
     top: 5vh;
   }
+}
+.s-sidebar__nav ul a {
+  color: white;
+  transition: background-color 0.5s, color 0.7s;
+}
+.s-sidebar__nav ul a:hover {
+  color: black;
+  background-color: aliceblue;
 }
