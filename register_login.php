@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['user_id'])) {
     header("location: ./index.php");
 }
 ?>
@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WHOLESALE-MART</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="./Public/styles/register_login.css">
+    <link rel="stylesheet" href="./public/styles/register_login.css">
     <script src="https://kit.fontawesome.com/7b39153ed3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -82,11 +82,8 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
         </div>
-        <!-- overlay section start-->
     </div>
     <script>
-        // For Login and Register Section 
-
         const signUpBUtton = document.getElementById("signUp");
         const signInBUtton = document.getElementById("signIn");
         const container = document.getElementById("container");

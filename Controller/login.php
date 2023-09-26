@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count == 1) {
         $_SESSION['email'] = $email;
-        $_SESSION['user_id'] = $$row['id'];;
+        $_SESSION['user_id'] = $row['id'];;
         $_SESSION['f_name'] = $row['f_name'];
         $_SESSION['l_name'] = $row['l_name'];
         $_SESSION['acc_type'] = $row['acc_type'];
-        header("location: ../index.php");
+        header("location: ../dealer/index.php");
     } else {
         $error = "Your Login Name or Password is invalid";
     }

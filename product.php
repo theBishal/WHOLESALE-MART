@@ -45,7 +45,7 @@ $result = mysqli_query($conn, $query);
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['product_name']; ?></h5>
                             <p class="card-text"><?php echo $row['product_description']; ?></p>
-                            <p class="card-text"></p>
+                            <p class="card-text"></p> <br />
                             <span class="card-text">In stock: <p class="card-text"><?php echo $row['stock']; ?>
                                 </p></span>
                             <hr>
