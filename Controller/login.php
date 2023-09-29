@@ -23,7 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['f_name'] = $row['f_name'];
         $_SESSION['l_name'] = $row['l_name'];
         $_SESSION['acc_type'] = $row['acc_type'];
-        header("location: ../dealer/index.php");
+        if ($row['acc_type'] == "Dealer") {
+            header("location: ../dealer/index.php");
+        } else {
+            header("location: ../retailer/index.php");
+        }
     } else {
         $error = "Your Login Name or Password is invalid";
     }

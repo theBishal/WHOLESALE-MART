@@ -3,20 +3,20 @@ require_once('../Model/db.php');
 session_start();
 
 require_once('../auth/check_auth.php');
-require_once('../auth/check_dealer.php');
+require_once('../auth/check_retailer.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../component/dealer/head.php'; ?>
+<?php include '../component/retailer/head.php'; ?>
 
 <body>
     <!-- ======= Header ======= -->
-    <?php include '../component/dealer/header.php'; ?>
+    <?php include '../component/retailer/header.php'; ?>
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-    <?php include '../component/dealer/sidebar.php'; ?>
+    <?php include '../component/retailer/sidebar.php'; ?>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -745,7 +745,7 @@ require_once('../auth/check_dealer.php');
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <?php include '../component/dealer/footer.php'; ?>
+    <?php include '../component/retailer/footer.php'; ?>
 </body>
 
 </html>

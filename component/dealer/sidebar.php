@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="../dealer/decline_retailer.php">
-                <i class="bi bi-journal-text"></i><span>Decline Retailer</span>
+                <i class="bi bi-journal-text"></i><span>Declined Retailer</span>
             </a>
         </li>
         <li class="nav-item">

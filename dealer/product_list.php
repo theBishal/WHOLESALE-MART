@@ -1,21 +1,25 @@
 <?php
-require_once("../Model/db.php");
+require_once('../Model/db.php');
 session_start();
+
+require_once('../auth/check_auth.php');
+require_once('../auth/check_dealer.php');
+
 $query = "SELECT * FROM product";
 $result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../component/head.php'; ?>
+<?php include '../component/dealer/head.php'; ?>
 
 <body>
     <!-- ======= Header ======= -->
-    <?php include '../component/header.php'; ?>
+    <?php include '../component/dealer/header.php'; ?>
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-    <?php include '../component/sidebar.php'; ?>
+    <?php include '../component/dealer/sidebar.php'; ?>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -45,6 +49,7 @@ $result = mysqli_query($conn, $query);
                                         <th scope="col">Product Image</th>
                                         <th scope="col">Stock</th>
                                         <th scope="col">Product Created</th>
+                                        <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,6 +69,14 @@ $result = mysqli_query($conn, $query);
                                                                                 echo $row['stock'];
                                                                             } ?></span></td>
                                             <td><?= $row['created']; ?></td>
+                                            <td>
+                                                <a href="edit_product.php?product_id=<?= $row['id']; ?>">
+                                                    <button class="btn btn-sm btn-success">Edit</button>
+                                                </a>
+                                                <a href="delete_product.php?product_id=<?= $row['id']; ?>">
+                                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                                </a>
+                                            </td>
 
                                         </tr>
                                     <?php } ?>
@@ -81,7 +94,7 @@ $result = mysqli_query($conn, $query);
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <?php include '../component/footer.php'; ?>
+    <?php include '../component/dealer/footer.php'; ?>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ session_start();
 require_once('../auth/check_auth.php');
 require_once('../auth/check_dealer.php');
 
+
 $dealerId = $_SESSION['user_id'];
 $sql = "SELECT * FROM requested_price WHERE dealer_id = '$dealerId' AND status=1";
 
@@ -15,15 +16,15 @@ $result = mysqli_query($conn, $sql);
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../component/head.php'; ?>
+<?php include '../component/dealer/head.php'; ?>
 
 <body>
     <!-- ======= Header ======= -->
-    <?php include '../component/header.php'; ?>
+    <?php include '../component/dealer/header.php'; ?>
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
-    <?php include '../component/sidebar.php'; ?>
+    <?php include '../component/dealer/sidebar.php'; ?>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
@@ -88,7 +89,7 @@ $result = mysqli_query($conn, $sql);
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <?php include '../component/footer.php'; ?>
+    <?php include '../component/dealer/footer.php'; ?>
 </body>
 
 </html>

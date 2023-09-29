@@ -1,6 +1,10 @@
 <?php
 require_once('../Model/db.php');
 session_start();
+
+require_once('../auth/check_auth.php');
+require_once('../auth/check_dealer.php');
+
 if (isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];
     $sql = "SELECT * FROM requested_price WHERE id = $product_id";
