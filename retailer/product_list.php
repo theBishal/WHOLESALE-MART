@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $query);
             <div class="row align-items-top">
                 <?php while ($row = mysqli_fetch_assoc($result)) {
                     $requested_sql =
-                        "SELECT * FROM requested_price WHERE retailer_id = " . $_SESSION['user_id'];
+                        "SELECT * FROM requested_price WHERE retailer_id = " . $_SESSION['user_id'] . " AND dealer_id = " . $row['dealer_id'];
                     $requested_result = mysqli_query($conn, $requested_sql);
                     $requested_row = mysqli_fetch_array($requested_result, MYSQLI_ASSOC);
 
@@ -54,17 +54,18 @@ $result = mysqli_query($conn, $query);
                                                                                                                         echo "...";
                                                                                                                     } ?> </p>
                                     <p class="card-text">
-                                    <h5><span class="badge bg-success">In Stock : <?php if ($row['stock'] <= 2) {
-                                                                                        echo "<span class='bg-danger'>" . $row['stock'] . "</span>";
-                                                                                    } else {
-                                                                                        echo "<span class='bg-success'>" . $row['stock'] . "</span>";
-                                                                                    } ?></span>
+                                    <h5><?php if ($row['stock'] == 0) {
+                                            echo "<span class='badge bg-danger'>Out of stock</span>";
+                                        } else if ($row['stock'] <= 2) {
+                                            echo "<span class='badge bg-danger'>In Stock : " . $row['stock'] . "</span>";
+                                        } else {
+                                            echo "<span class='badge bg-success'>In Stock :" . $row['stock'] . "</span>";
+                                        } ?>
 
-
-                                        <?php if ($requested_row['status'] == 1 && $requested_row['dealer_id'] == $row['dealer_id']) { ?>
-                                            <a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-primary float-left">View Product</a>
-                                        <?php } else if ($requested_row['retailer_id'] == $_SESSION['user_id']) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Already Requested</a>
-                                        <?php } else { ?><a href="request_price.php?dealer_id=<?= $row['dealer_id']; ?>&product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Request Price</a>
+                                        <?php if ($requested_row['status'] == 1) { ?>
+                                            <a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-success float-left">View Product</a>
+                                        <?php } else if ($requested_row['status'] == 0) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?>" class="btn btn-warning float-left">Already Requested</a>
+                                        <?php } else if ($requested_row['status'] == -1) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-danger float-left">Declined</a> <?php } else { ?><a href="request_price.php?dealer_id=<?= $row['dealer_id']; ?>&product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Request Price</a>
                                         <?php } ?>
                                     </h5>
                                     </p>

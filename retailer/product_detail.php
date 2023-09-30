@@ -15,7 +15,7 @@ if (isset($_GET['product_id'])) {
         echo "No product found.";
     } else {
         $requested_sql =
-            "SELECT * FROM requested_price WHERE retailer_id = " . $_SESSION['user_id'];
+            "SELECT * FROM requested_price WHERE retailer_id = " . $_SESSION['user_id'] . " AND dealer_id = " . $row['dealer_id'];
         $requested_result = mysqli_query($conn, $requested_sql);
         $requested_row = mysqli_fetch_array($requested_result, MYSQLI_ASSOC);
 ?>
@@ -58,15 +58,33 @@ if (isset($_GET['product_id'])) {
                                             <p class="card-text"><?= $row['product_description']; ?></p>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4><span class="badge bg-success">In stock: <?= $row['stock']; ?></span></h4>
+                                                    <h4><span class="badge bg-success"><?php if ($row['stock'] > 0) { ?>In stock: <?= $row['stock']; ?> <?php } else {
+                                                                                                                                                        echo "Out of stock";
+                                                                                                                                                    } ?></span></h4>
                                                 </div>
                                                 <div class="col float-right">
-                                                    <?php if ($requested_row['status'] == 1 && $requested_row['dealer_id'] == $row['dealer_id']) { ?>
-                                                        <h4><span class="badge bg-warning">Price: <?= $row['price']; ?></span></h4>
-                                                    <?php } else if ($requested_row['retailer_id'] == $_SESSION['user_id']) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Already Requested</a>
-                                                    <?php } else { ?><a href="request_price.php?dealer_id=<?= $row['dealer_id']; ?>&product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Request Price</a>
+                                                    <?php if ($requested_row['status'] == 1) { ?>
+                                                        <h4>
+                                                            <span class="badge bg-success">
+                                                                Price: <?= $row['price']; ?>
+                                                            </span>
+                                                        </h4>
+                                                    <?php } else if ($requested_row['status'] == 0) { ?>
+                                                        <a href="product_detail.php?product_id=<?= $row['id']; ?>" class="btn btn-warning float-left">Already Requested</a>
+                                                    <?php } else if ($requested_row['status'] == -1) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-danger float-left">Declined</a> <?php } else { ?><a href="request_price.php?dealer_id=<?= $row['dealer_id']; ?>&product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Request Price</a>
                                                     <?php } ?>
+                                                    <?php if ($requested_row['status'] == 1) {
+                                                        if ($row['stock'] > 0) {
+                                                    ?>
+                                                            <form method='post' action='add_cart.php'>
+                                                                <input type='hidden' name='product_id' value="<?php echo $row['id']; ?>">
+                                                                Quantity: <input type='number' name='quantity' value='1' min='1'>
+                                                                <input type='submit' value='Add to Cart'>
+                                                            </form>
+                                                    <?php }
+                                                    } ?>
                                                 </div>
+
                                             </div>
 
                                         </div>

@@ -5,7 +5,7 @@ session_start();
 require_once('../auth/check_auth.php');
 require_once('../auth/check_dealer.php');
 
-$query = "SELECT * FROM product";
+$query = "SELECT * FROM product WHERE dealer_id = " . $_SESSION['user_id'] . " ORDER BY created DESC";
 $result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
@@ -56,7 +56,9 @@ $result = mysqli_query($conn, $query);
                                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
                                             <td><?= $row['product_name']; ?></td>
-                                            <td><?= $row['product_description']; ?></td>
+                                            <td><?php echo substr($row['product_description'], 0, 150) ?><?php if (strlen($row['product_description']) > 150) {
+                                                                                                                echo "...";
+                                                                                                            } ?> </td>
                                             <td><?= $row['price']; ?></td>
                                             <td><img src="../public/media/productImage/<?= $row['product_image']; ?>" style="width:200px; height:100px;"></td>
                                             <td><span class="status <?php if ($row['stock'] <= 2) {
