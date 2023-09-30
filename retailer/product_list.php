@@ -49,7 +49,7 @@ $result = mysqli_query($conn, $query);
                                     <img src=" ../public/media/productImage/<?= $row['product_image']; ?>" style="width:100%; height:200px;">
                                 </a>
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $row['product_name']; ?></h5>
+                                    <h5 class="card-title"><?= $row['product_name'];  ?> </h5>
                                     <p class="card-text"><?php echo substr($row['product_description'], 0, 150) ?><?php if (strlen($row['product_description']) > 150) {
                                                                                                                         echo "...";
                                                                                                                     } ?> </p>
@@ -62,10 +62,14 @@ $result = mysqli_query($conn, $query);
                                             echo "<span class='badge bg-success'>In Stock :" . $row['stock'] . "</span>";
                                         } ?>
 
-                                        <?php if ($requested_row['status'] == 1) { ?>
-                                            <a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-success float-left">View Product</a>
-                                        <?php } else if ($requested_row['status'] == 0) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?>" class="btn btn-warning float-left">Already Requested</a>
-                                        <?php } else if ($requested_row['status'] == -1) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-danger float-left">Declined</a> <?php } else { ?><a href="request_price.php?dealer_id=<?= $row['dealer_id']; ?>&product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Request Price</a>
+                                        <?php
+                                        if (isset($requested_row['status'])) {
+
+                                            if ($requested_row['status'] == 1) { ?>
+                                                <a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-success float-left">View Product</a>
+                                            <?php } else if ($requested_row['status'] == 0) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?>" class="btn btn-warning float-left">Already Requested</a>
+                                            <?php } else if ($requested_row['status'] == -1) { ?><a href="product_detail.php?product_id=<?= $row['id']; ?> " class="btn btn-danger float-left">Declined</a> <?php }
+                                                                                                                                                                                                    } else { ?><a href="request_price.php?dealer_id=<?= $row['dealer_id']; ?>&product_id=<?= $row['id']; ?>" class="btn btn-primary float-left">Request Price</a>
                                         <?php } ?>
                                     </h5>
                                     </p>
