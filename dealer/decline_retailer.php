@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $sql);
                                             <td><?= $retailerRow['phone_no']; ?></td>
                                             <td><?= $retailerRow['created_at']; ?></td>
                                             <td>
-                                                <a href="approved_price.php?product_id=<?= $row['id'] ?>"><button class="btn btn-sm btn-success">Approved</button></a>
+                                                <a href="approved_price.php?product_id=<?= $row['id'] ?>"><button class="btn btn-sm btn-success">Approve</button></a>
                                             </td>
                                         </tr>
                                     <?php } ?>

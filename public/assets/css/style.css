@@ -371,9 +371,18 @@ h6 {
 
 .logo span {
   font-size: 26px;
-  font-weight: 700;
-  color: #012970;
+  font-weight: 900;
+  color: #fff;
   font-family: "Nunito", sans-serif;
+}
+
+.logo span:hover {
+  color: black;
+  filter: brightness(1200px);
+}
+.login-background
+{
+  background-color: #3AAFA9;
 }
 
 .header {
@@ -381,22 +390,20 @@ h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #3AAFA9;
   padding-left: 20px;
   /* Toggle Sidebar Button */
-  /* Search Bar */
 }
 
 .header .toggle-sidebar-btn {
   font-size: 32px;
   padding-left: 10px;
   cursor: pointer;
-  color: #012970;
+  color: #fff;
 }
 
-.header .search-bar {
-  min-width: 360px;
-  padding: 0 20px;
+.header .toggle-sidebar-btn:hover {
+  color: #000;
 }
 
 @media (max-width: 1199px) {
@@ -474,7 +481,10 @@ h6 {
 }
 
 .header-nav .nav-profile {
-  color: #012970;
+  color: #fff;
+}
+.header-nav .nav-profile:hover{
+  color: #000;
 }
 
 .header-nav .nav-profile img {
@@ -494,73 +504,6 @@ h6 {
   padding: 3px 6px;
 }
 
-.header-nav .notifications {
-  inset: 8px -15px auto auto !important;
-}
-
-.header-nav .notifications .notification-item {
-  display: flex;
-  align-items: center;
-  padding: 15px 10px;
-  transition: 0.3s;
-}
-
-.header-nav .notifications .notification-item i {
-  margin: 0 20px 0 10px;
-  font-size: 24px;
-}
-
-.header-nav .notifications .notification-item h4 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.header-nav .notifications .notification-item p {
-  font-size: 13px;
-  margin-bottom: 3px;
-  color: #919191;
-}
-
-.header-nav .notifications .notification-item:hover {
-  background-color: #f6f9ff;
-}
-
-.header-nav .messages {
-  inset: 8px -15px auto auto !important;
-}
-
-.header-nav .messages .message-item {
-  padding: 15px 10px;
-  transition: 0.3s;
-}
-
-.header-nav .messages .message-item a {
-  display: flex;
-}
-
-.header-nav .messages .message-item img {
-  margin: 0 20px 0 10px;
-  max-height: 40px;
-}
-
-.header-nav .messages .message-item h4 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #444444;
-}
-
-.header-nav .messages .message-item p {
-  font-size: 13px;
-  margin-bottom: 3px;
-  color: #919191;
-}
-
-.header-nav .messages .message-item:hover {
-  background-color: #f6f9ff;
-}
-
 .header-nav .profile {
   min-width: 240px;
   padding-bottom: 0;
@@ -571,7 +514,7 @@ h6 {
   font-size: 18px;
   margin-bottom: 0;
   font-weight: 600;
-  color: #444444;
+  
 }
 
 .header-nav .profile .dropdown-header span {
@@ -591,7 +534,7 @@ h6 {
 }
 
 .header-nav .profile .dropdown-item:hover {
-  background-color: #f6f9ff;
+  background-color: #3AAFA9;
 }
 
 /*--------------------------------------------------------------
@@ -610,7 +553,7 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #DEF2F1;
 }
 
 @media (max-width: 1199px) {
@@ -670,6 +613,19 @@ h6 {
 .sidebar-nav .nav-item {
   margin-bottom: 5px;
 }
+.sidebar-nav .nav-item.active {
+  background-color: #3AAFA9;
+   border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
+}
+.sidebar-nav .nav-item.active a , .sidebar-nav .nav-item.active i {
+  color: #fff ;
+  
+}
+
 
 .sidebar-nav .nav-heading {
   font-size: 11px;
@@ -680,15 +636,18 @@ h6 {
 }
 
 .sidebar-nav .nav-link {
+  font-family: "Nunito", sans-serif;
   display: flex;
   align-items: center;
-  font-size: 15px;
-  font-weight: 600;
-  color: #4154f1;
-  transition: 0.3;
-  background: #f6f9ff;
+  font-size: 17px;
+  font-weight: 500;
+  color: #000;
+  transition: 0.2s;
   padding: 10px 15px;
-  border-radius: 4px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .sidebar-nav .nav-link i {
@@ -699,20 +658,21 @@ h6 {
 
 .sidebar-nav .nav-link.collapsed {
   color: #012970;
-  background: #fff;
 }
 
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  color: #4154f1;
 }
 
-.sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+
+.sidebar-nav .nav-link:hover, .sidebar-nav .nav-link.active {
+  color: #fff;
+  background: #3AAFA9;
 }
+
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #fff;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -735,7 +695,7 @@ h6 {
   align-items: center;
   font-size: 14px;
   font-weight: 600;
-  color: #012970;
+  color: #4154f1;
   transition: 0.3;
   padding: 10px 0 10px 40px;
   transition: 0.3s;
@@ -750,12 +710,14 @@ h6 {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #4154f1;
+  color: #fff;
+  background: #000;
 }
 
 .sidebar-nav .nav-content a.active i {
   background-color: #4154f1;
 }
+
 
 /*--------------------------------------------------------------
 # Dashboard
@@ -1230,4 +1192,11 @@ h6 {
   text-align: center;
   font-size: 13px;
   color: #012970;
+}
+
+/* Login Screen */
+
+section div a span
+{
+  color: #000;
 }

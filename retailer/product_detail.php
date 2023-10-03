@@ -58,9 +58,14 @@ if (isset($_GET['product_id'])) {
                                             <p class="card-text"><?= $row['product_description']; ?></p>
                                             <div class="row">
                                                 <div class="col">
-                                                    <h4><span class="badge bg-success"><?php if ($row['stock'] > 0) { ?>In stock: <?= $row['stock']; ?> <?php } else {
-                                                                                                                                                        echo "Out of stock";
-                                                                                                                                                    } ?></span></h4>
+                                                    <h4><span><?php if ($row['stock'] == 0) {
+                                                                    echo "<span class='badge bg-danger'>Out of stock</span>";
+                                                                } else if ($row['stock'] <= 2) {
+                                                                    echo "<span class='badge bg-danger'>In Stock : " . $row['stock'] . "</span>";
+                                                                } else {
+                                                                    echo "<span class='badge bg-success'>In Stock :" . $row['stock'] . "</span>";
+                                                                } ?>
+                                                        </span></h4>
                                                 </div>
                                                 <div class="col float-right">
                                                     <?php
@@ -81,8 +86,8 @@ if (isset($_GET['product_id'])) {
                                                     ?>
                                                             <form method='post' action='add_cart.php'>
                                                                 <input type='hidden' name='product_id' value="<?php echo $row['id']; ?>">
-                                                                Quantity: <input type='number' name='quantity' value='1' min='1'>
-                                                                <input type='submit' value='Add to Cart'>
+                                                                <label>Quantity:</label> <input class="p-1 mt-5 " type='number' name='quantity' value='1' min='1'>
+                                                                <input class="btn btn-primary bg-success" type='submit' value='Add to Cart'>
                                                             </form>
                                                     <?php }
                                                     } ?>
