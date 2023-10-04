@@ -46,14 +46,10 @@
     </ul>
 </aside>
 <script>
-    let item = document.querySelectorAll('.nav-item');
-    for (let i = 0; i < item.length; i++) {
-        item[i].onclick = function() {
-            let j = 0;
-            while (j < item.length) {
-                item[j++].className = 'nav-item';
-            }
-            item[i].className = 'nav-item active';
-        };
-    }
+    $(document).ready(function() {
+        $("ul.navbar-nav > li").click(function(e) {
+            $("ul.navbar-nav > li").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
 </script>

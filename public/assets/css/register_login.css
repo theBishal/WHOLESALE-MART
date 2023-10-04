@@ -306,6 +306,7 @@ button:hover::before {
     font-size: 1.5em;
     font-weight: 500;
     font-family: cursive;
+    color: #3AAFA9;
 }
 .title a:hover 
 {

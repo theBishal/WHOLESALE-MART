@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id'])) {
 
         <!-- sign Up form section start-->
         <div class="form sign_up">
-            <div class="title d-flex justify-content-center">
+            <div class="title d-flex justify-content-center mx-0">
                 <h2><a href="./register_login.php">WHOLESALE-MART</a></h2>
             </div>
             <div class="sign-up-form">
@@ -41,8 +41,8 @@ if (isset($_SESSION['user_id'])) {
                     <span id="message" style="color: red;"></span>
                     <input type="password" placeholder="Confirm password" name="Re-Password" id="Re-Password" required value="">
                     <div class="selec d-flex">
-                        <div class="d-flex col-md-5 offset-2">
-                            <label id="acc_type">AccountType</label>
+                        <div class="d-flex col-md-4 offset-1">
+                            <label id="acc_type">Account Type</label>
                         </div>
                         <div class="d-flex col-md-5 offset-3">
                             <input type="radio" id="Dealer" value="Dealer" name="acc_type">
@@ -66,7 +66,7 @@ if (isset($_SESSION['user_id'])) {
 
         <!-- sign in form section start-->
         <div class="form sign_in">
-            <div class="title d-flex justify-content-center">
+            <div class="title d-flex justify-content-center mx-0">
                 <h2><a href="./register_login.php">WHOLESALE-MART</a></h2>
             </div>
             <div class="sign-in-form justify-content-center">

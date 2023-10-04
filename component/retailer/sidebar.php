@@ -15,7 +15,7 @@
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link " href="../retailer/cart_product.php">
+            <a class="nav-link " href="../retailer/cart.php">
                 <i class="bi bi-cart-plus-fill"></i><span>Cart Product</span>
             </a>
         </li>

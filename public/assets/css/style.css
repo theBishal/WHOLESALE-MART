@@ -1200,3 +1200,13 @@ section div a span
 {
   color: #000;
 }
+
+.add-product-button , .update-btn
+{
+  background-color: #3AAFA9;
+  color: white;
+}
+.add-product-button:hover , .update-btn:hover
+{
+  background-color: #000;
+}

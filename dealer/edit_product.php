@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <input type="number" class="form-control" name="stock" id="stock_id" value="<?= $row['stock'] ?>">
                                 </div>
 
-                                <input type="submit" value="Update Product">
+                                <button class="btn btn-primary update-btn" type="submit">Update Product</button>
                             </form><!-- End Multi Columns Form -->
 
                         </div>
