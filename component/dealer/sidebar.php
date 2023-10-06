@@ -1,6 +1,6 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="../dealer/index.php">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
