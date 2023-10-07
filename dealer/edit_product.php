@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_query($conn, $insertQuery)) {
         $successMessage = "Product updated successfully.";
-        header("Location: edit_product.php?product_id=$product_id");
+        header("Location: ./product_list.php");
     } else {
         $errorMessage = "Error inserting product: " . mysqli_error($conn);
     }

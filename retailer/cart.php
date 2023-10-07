@@ -64,7 +64,7 @@ $total_price = 0;
                                                     <form method='post' action='add_cart.php'>
                                                         <input type='hidden' name='product_id' value="<?php echo $product_row['id']; ?>">
                                                         <input class="p-1 mt-0" type='number' name='quantity' value="<?= $row['quantity'] ?>" min='1'>
-                                                        <input class="btn btn-primary bg-success" type='submit' name="update" value='Update'>
+                                                        <input class="btn btn-primary bg-primary" type='submit' name="update" value='Update'>
                                                     </form>
                                                 <?php
                                                 } ?>
@@ -87,9 +87,9 @@ $total_price = 0;
                                         </tr>
                                         <tr>
                                             <td colspan="6">
-                                                <a href="clear_cart.php" class="btn btn-primary">Clear Cart</a>
+                                                <a href="clear_cart.php" class="btn btn-danger">Clear Cart</a>
 
-                                                <a style="float:right" href="checkout.php" class="btn btn-primary">Checkout</a>
+                                                <a style="float:right" href="checkout.php" class="btn btn-success">Checkout</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

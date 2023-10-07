@@ -27,6 +27,3 @@ if (mysqli_query($conn, $sql)) {
 
 // Close connection
 mysqli_close($conn);
-?>
-
-<!-- // <button type="submit" class="submit">Sign Up</button> -->

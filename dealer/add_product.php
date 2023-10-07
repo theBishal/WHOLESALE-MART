@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_query($conn, $insertQuery)) {
         $successMessage = "Product inserted successfully.";
+        header("Location: product_list.php");
     } else {
         $errorMessage = "Error inserting product: " . mysqli_error($conn);
     }
@@ -95,20 +96,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="col-md-6">
                                     <label for="product_image_id" class="form-label">Image</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="file" name="product_image" id="product_image_id">
+                                        <input class="form-control" type="file" name="product_image" id="product_image_id" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="product_description_id" class="form-label">Description</label>
-                                    <textarea type="text" class="form-control" id="product_description_id" name="product_description" rows=" 5"></textarea>
+                                    <textarea type="text" class="form-control" id="product_description_id" name="product_description" rows=" 5" required></textarea>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="price_id" class="form-label">Price</label>
-                                    <input type="number" class="form-control" name="price" id="price_id">
+                                    <input type="number" class="form-control" name="price" id="price_id" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="stock_id" class="form-label">Stock</label>
-                                    <input type="number" class="form-control" name="stock" id="stock_id">
+                                    <input type="number" class="form-control" name="stock" id="stock_id" required>
                                 </div>
 
                                 <button class="btn btn-primary add-product-button" type="submit">Add Product</button>
