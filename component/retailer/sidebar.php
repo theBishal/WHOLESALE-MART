@@ -1,7 +1,7 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link active" href="../retailer/index.php">
+            <a class="nav-link" href="../retailer/index.php">
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
             </a>

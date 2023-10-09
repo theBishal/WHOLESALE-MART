@@ -24,7 +24,7 @@ $total_price = 0;
             <h1>Checkout</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
                     <li class="breadcrumb-item active">Checkout</li>
                 </ol>
             </nav>

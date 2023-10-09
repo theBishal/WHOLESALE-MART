@@ -31,9 +31,8 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             <h1>Profile</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Users</li>
-                    <li class="breadcrumb-item active">Profile</li>
+                    <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                    <li class="breadcrumb-item active">Change Password</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

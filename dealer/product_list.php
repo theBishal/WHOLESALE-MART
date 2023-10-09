@@ -27,7 +27,8 @@ $result = mysqli_query($conn, $query);
             <h1>Product List</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Product</a></li>
+                    <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                    <li class="breadcrumb-item">Product</li>
                     <li class="breadcrumb-item active">Product List</li>
                 </ol>
             </nav>

@@ -32,8 +32,8 @@ $result = mysqli_query($conn, $sql);
             <h1>Requested Price</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Requested Price</li>
+                    <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                    <li class="breadcrumb-item active">Decline Retailer</li>
                 </ol>
             </nav>
         </div>
@@ -67,7 +67,7 @@ $result = mysqli_query($conn, $sql);
                                             <td><?= $retailerRow['f_name']; ?> <?= $retailerRow['l_name']; ?></td>
                                             <td><?= $retailerRow['store_name']; ?></td>
                                             <td><?= $retailerRow['address']; ?></td>
-                                            <td><img src="" style="width:200px; height:100px;"></td>
+                                            <td><img src="../public/media/profileImage/<?= $retailerRow['image'] ?>" style="width:200px; height:100px;"></td>
                                             <td><?= $retailerRow['phone_no']; ?></td>
                                             <td><?= $retailerRow['created_at']; ?></td>
                                             <td>

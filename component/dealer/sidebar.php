@@ -45,14 +45,20 @@
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link " href="../retailer/order_pending.php">
+            <a class="nav-link " href="../dealer/order_pending.php">
                 <i class="bi bi-patch-exclamation-fill"></i><span>Order Pending</span>
             </a>
         </li>
         <hr>
         <li class="nav-item">
-            <a class="nav-link " href="../retailer/order_completed.php">
+            <a class="nav-link " href="../dealer/order_completed.php">
                 <i class="bi bi-bag-check-fill"></i><span>Order Completed</span>
+            </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+            <a class="nav-link " href="../dealer/order_cancelled.php">
+                <i class="bi bi-bag-check-fill"></i><span>Cancel Order</span>
             </a>
         </li>
     </ul>

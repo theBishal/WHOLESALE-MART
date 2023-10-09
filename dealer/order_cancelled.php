@@ -3,30 +3,24 @@ require_once('../Model/db.php');
 session_start();
 
 require_once('../auth/check_auth.php');
-require_once('../auth/check_retailer.php');
-
+require_once('../auth/check_dealer.php');
 $user_id = $_SESSION['user_id'];
-$check_query = "SELECT * FROM orders WHERE user_id = '$user_id'";
+$check_query = "SELECT * FROM orders WHERE dealer_id ='$user_id' AND status = 'Cancelled'";
 $result = mysqli_query($conn, $check_query);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../component/retailer/head.php'; ?>
+<?php include '../component/dealer/head.php'; ?>
 
 <body>
-    <!-- ======= Header ======= -->
-    <?php include '../component/retailer/header.php'; ?>
-    <!-- End Header -->
+    <?php include '../component/dealer/header.php'; ?>
 
-    <!-- ======= Sidebar ======= -->
-    <?php include '../component/retailer/sidebar.php'; ?>
-    <!-- End Sidebar-->
+    <?php include '../component/dealer/sidebar.php'; ?>
 
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Product List</h1>
+            <h1>Order History</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
@@ -57,7 +51,7 @@ $result = mysqli_query($conn, $check_query);
                                             <td><?= $row['order_date'] ?></td>
                                             <td><?= $row['status']; ?></td>
                                             <td><?= $row['total_amount']; ?></td>
-                                            <td><a href="./view_order.php?id=<?= $row['order_id'] ?>  ">View Order</a></td>
+                                            <td><a href="./view_order.php?id=<?= $row['order_id'] ?>">View Order</a></td>
 
 
                                         </tr>
@@ -74,10 +68,7 @@ $result = mysqli_query($conn, $check_query);
         </section>
     </main>
 
-
-
-    <!-- ======= Footer ======= -->
-    <?php include '../component/retailer/footer.php'; ?>
+    <?php include '../component/dealer/footer.php'; ?>
 </body>
 
 </html>

@@ -64,8 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>Product</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Product</a></li>
-                    <li class="breadcrumb-item active">Add Product</li>
+                    <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="./product_list.php">Product</a></li>
+                    <li class="breadcrumb-item active">Edit Product</li>
                 </ol>
             </nav>
         </div>

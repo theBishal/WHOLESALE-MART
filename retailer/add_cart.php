@@ -28,9 +28,9 @@ if ($row['stock'] >= $quantity) {
             // mysqli_query($conn, $update_product);
             header('location: ../retailer/cart.php');
         } else {
-            $insert_query = "INSERT INTO cart_items (user_id, product_id, quantity, price) VALUES ($user_id, $product_id, $quantity, $row[price])";
+            $insert_query = "INSERT INTO cart_items (user_id, product_id,dealer_id, quantity, price) VALUES ($user_id, $product_id, $row[dealer_id], $quantity, $row[price])";
             mysqli_query($conn, $insert_query);
-            // $update_product = "UPDATE product SET stock = stock - $quantity WHERE id = $product_id";
+            // $update_product = "UPDATE product SET stcart_itemsock = stock - $quantity WHERE id = $product_id";
             // mysqli_query($conn, $update_product);
             header('location: ../retailer/cart.php');
         }

@@ -15,7 +15,7 @@ if (isset($_GET['product_id'])) {
         $sql_update = "UPDATE requested_price SET status=1 WHERE id=$product_id ";
 
         if (mysqli_query($conn, $sql_update)) {
-            header("Location: requested_price.php");
+            header("Location: approved_retailer.php");
         } else {
             echo "Error updating record: " . mysqli_error($conn);
         }

@@ -3,7 +3,7 @@ require_once('../Model/db.php');
 session_start();
 
 require_once('../auth/check_auth.php');
-require_once('../auth/check_retailer.php');
+require_once('../auth/check_dealer.php');
 
 $query = "SELECT * FROM order_items WHERE order_id = '" . $_GET['id'] . "'";
 $result = mysqli_query($conn, $query);
@@ -14,12 +14,12 @@ $total_price = 0;
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../component/retailer/head.php'; ?>
+<?php include '../component/dealer/head.php'; ?>
 
 <body>
 
-    <?php include '../component/retailer/header.php'; ?>
-    <?php include '../component/retailer/sidebar.php'; ?>
+    <?php include '../component/dealer/header.php'; ?>
+    <?php include '../component/dealer/sidebar.php'; ?>
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>My Cart</h1>
@@ -64,8 +64,20 @@ $total_price = 0;
                                     <?php } ?>
 
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="2">
                                             <span style="float:right"><b>Total Price: <?= $total_price ?></b> </span>
+                                        </td>
+                                        <td>
+                                            <?php if (isset($_GET['confirm'])) { ?>
+
+                                                <a href="cancel_order.php?order_id=<?= $_GET['id']; ?>">
+                                                    <button class="btn btn-danger" style="float:right">Cancel Order</button>
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="confirm_order.php?order_id=<?= $_GET['id']; ?>">
+                                                    <button class="btn btn-primary" style="float:right">Confirm Order</button>
+                                                </a>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -78,7 +90,7 @@ $total_price = 0;
             </div>
         </section>
     </main>
-    <?php include '../component/retailer/footer.php'; ?>
+    <?php include '../component/dealer/footer.php'; ?>
 
 </body>
 
