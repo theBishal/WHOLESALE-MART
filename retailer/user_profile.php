@@ -43,7 +43,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                            <img src="../public/media/profileImage/<?= $_SESSION['profile_pic']; ?>" alt="Profile" class="rounded-circle">
                             <h2><?= $row['f_name']; ?> <?= $row['l_name']; ?></h2>
                             <h3><b><?= $row['store_name'] ?></b></h3>
                             <h3><?= $row['acc_type']; ?></h3>
@@ -107,15 +107,12 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form action="./edit_profile.php?id=<?= $row['id'] ?>" method="post">
+                                    <form action="./edit_profile.php?id=<?= $row['id'] ?>" method="post" enctype="multipart/form-data">
                                         <div class="row mb-3">
                                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
-                                                <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                                                </div>
+                                                <img src="../public/media/profileImage/<?= $row['image']; ?>" alt="Profile">
+                                                <input class="form-control mt-2" type="file" name="image" id="image">
                                             </div>
                                         </div>
 
@@ -128,35 +125,35 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                                         <div class="row mb-3">
                                             <label for="l_name" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="l_name type=" text" class="form-control" id="l_name" value="<?= $row['l_name']; ?>">
+                                                <input name="l_name" type=" text" class="form-control" id="l_name" value="<?= $row['l_name']; ?>">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="about" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="Email" value="<?= $row['email'] ?>">
+                                                <input name="email" type="email" class="form-control" id="email" value="<?= $row['email'] ?>">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="company" class="col-md-4 col-lg-3 col-form-label">Phone no</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="phone" type="text" class="form-control" id="Phone" value="<?= $row['phone_no'] ?>">
+                                                <input name="phone_no" type="text" class="form-control" id="phone_no" value="<?= $row['phone_no'] ?>">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="address" type="text" class="form-control" id="Address" value="<?= $row['address'] ?>">
+                                                <input name="address" type="text" class="form-control" id="address" value="<?= $row['address'] ?>">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <label for="Store" class="col-md-4 col-lg-3 col-form-label">Store Name</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="Store" type="text" class="form-control" id="Store" value="<?= $row['store_name'] ?>">
+                                                <input name="store_name" type="text" class="form-control" id="store_name" value="<?= $row['store_name'] ?>">
                                             </div>
                                         </div>
 

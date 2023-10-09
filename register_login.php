@@ -3,6 +3,9 @@ session_start();
 if (isset($_SESSION['user_id'])) {
     header("location: ./index.php");
 }
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +31,7 @@ if (isset($_SESSION['user_id'])) {
                 <h2><a href="./register_login.php">WHOLESALE-MART</a></h2>
             </div>
             <div class="sign-up-form">
-                <form action="./Controller/register.php" method="post" onsubmit="return passCheck()">
+                <form action="./Controller/register.php" method="post" enctype="multipart/form-data" onsubmit=" return passCheck()">
                     <!-- heading -->
                     <h1>Create An Account</h1>
 
@@ -76,6 +79,13 @@ if (isset($_SESSION['user_id'])) {
                     <span>Login In with your Account</span>
                     <!-- input fields start -->
                     <input type="email" placeholder="Email" name="email">
+                    <?php
+                    if (isset($error)) {
+                        echo "<span style='color:red;'>$error</span>";
+                    }
+
+                    ?>
+
                     <input type="password" placeholder="Password" name="password">
                     <span>Forgot your <span class="forgot">password?</span></span>
                     <button type="submit">Login</button>

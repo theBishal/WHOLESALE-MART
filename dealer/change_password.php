@@ -4,6 +4,12 @@ session_start();
 
 require_once('../auth/check_auth.php');
 require_once('../auth/check_dealer.php');
+if (isset($_GET['error'])) {
+    $errorMessage = $_GET['error'];
+}
+$sql = "SELECT * FROM user WHERE id = '" . $_SESSION['user_id'] . "'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +45,10 @@ require_once('../auth/check_dealer.php');
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                            <h2>Kevin Anderson</h2>
-                            <h3>Web Designer</h3>
+                            <img src="../public/media/profileImage/<?= $_SESSION['profile_pic']; ?>" alt="Profile" class="rounded-circle">
+                            <h2><?= $row['f_name']; ?> <?= $row['l_name']; ?></h2>
+                            <h3><b><?= $row['store_name'] ?></b></h3>
+                            <h3><?= $row['acc_type']; ?></h3>
                             <div class="social-links mt-2">
                                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -61,26 +68,33 @@ require_once('../auth/check_dealer.php');
                                     <h5><b>Change Password</b></h5>
                                 </li>
                             </ul>
-                            <form>
+                            <form action="./password_controller.php" method="post" onsubmit=" return passCheck()">
 
                                 <div class="row mb-3">
-                                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                                    <label for="password" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="password" type="password" class="form-control" id="currentPassword">
+                                        <input name="password" type="password" class="form-control" id="password" required>
+                                        <?php if (isset($errorMessage)) { ?>
+                                            <p style="color: red;"><?php echo $errorMessage; ?></p>
+                                        <?php } ?>
+
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                                    <label for="new_password" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                                        <input name="new_password" type="password" class="form-control" id="new_Password" required>
+                                        <span id="message" style="color: red;"></span>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+
+                                    <label for="confirmPassword" class="col-md-4 col-lg-3 col-form-label">Confirm New Password</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+
+                                        <input name="confirmPassword" type="password" class="form-control" id="renewPassword" required>
                                     </div>
                                 </div>
 
@@ -102,6 +116,18 @@ require_once('../auth/check_dealer.php');
         </section>
 
     </main><!-- End #main -->
+    <script>
+        function passCheck() {
+            var newpassword = document.getElementById("new_Password").value;
+            var confirmPassword = document.getElementById("renewPassword").value;
+            if (newpassword != confirmPassword) {
+                document.getElementById("message").innerHTML = "Passwords do not match.";
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
 
     <!-- ======= Footer ======= -->
     <?php include '../component/dealer/footer.php'; ?>

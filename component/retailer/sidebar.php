@@ -2,7 +2,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
             <a class="nav-link active" href="../retailer/index.php">
-                <i class="bi bi-grid"></i>
+                <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
             </a>
         </li>

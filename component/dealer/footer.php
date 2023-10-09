@@ -2,6 +2,12 @@
     <div class="copyright">
         &copy; Copyright <strong><span>Wholesale Mart</span></strong>. All Rights Reserved
     </div>
+
+    <div class="credits">
+        <strong>Designed For Minor Project I</strong>
+    </div>
+
+
 </footer>
 <!-- End Footer -->
 

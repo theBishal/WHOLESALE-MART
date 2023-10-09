@@ -23,12 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['f_name'] = $row['f_name'];
         $_SESSION['l_name'] = $row['l_name'];
         $_SESSION['acc_type'] = $row['acc_type'];
+        $_SESSION['profile_pic'] = $row['image'];
         if ($row['acc_type'] == "Dealer") {
             header("location: ../dealer/index.php");
         } else {
+
             header("location: ../retailer/index.php");
         }
     } else {
-        $error = "Your Login Name or Password is invalid";
+        $error = "Your Login Email or Password is invalid";
+        header("location: ../register_login.php?error=$error");
     }
+} else {
+    $error = "Your Login Email or Password is invalid";
+    header("location: ../register_login.php?error=$error");
 }
