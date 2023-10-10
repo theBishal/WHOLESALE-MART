@@ -15,8 +15,11 @@ if (isset($_GET['error'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WHOLESALE-MART</title>
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/assets/css/register_login.css">
     <script src="https://kit.fontawesome.com/7b39153ed3.js" crossorigin="anonymous"></script>
 </head>
@@ -25,13 +28,15 @@ if (isset($_GET['error'])) {
 
     <div class="container" id="container">
 
+
         <!-- sign Up form section start-->
         <div class="form sign_up">
             <div class="title d-flex justify-content-center mx-0">
                 <h2><a href="./register_login.php">WHOLESALE-MART</a></h2>
             </div>
             <div class="sign-up-form">
-                <form action="./Controller/register.php" method="post" enctype="multipart/form-data" onsubmit=" return passCheck()">
+                <form action="./Controller/register.php" method="post" enctype="multipart/form-data"
+                    onsubmit=" return passCheck()">
                     <!-- heading -->
                     <h1>Create An Account</h1>
 
@@ -42,7 +47,8 @@ if (isset($_GET['error'])) {
                     <input type="tel" placeholder="Phone" pattern="[0-9]{10}" name="phone_no" required>
                     <input type="password" placeholder="Password" name="password" id="Password" required value="">
                     <span id="message" style="color: red;"></span>
-                    <input type="password" placeholder="Confirm password" name="Re-Password" id="Re-Password" required value="">
+                    <input type="password" placeholder="Confirm password" name="Re-Password" id="Re-Password" required
+                        value="">
                     <div class="selec d-flex">
                         <div class="d-flex col-md-4 offset-1">
                             <label id="acc_type">Account Type</label>
@@ -73,19 +79,24 @@ if (isset($_GET['error'])) {
                 <h2><a href="./register_login.php">WHOLESALE-MART</a></h2>
             </div>
             <div class="sign-in-form justify-content-center">
+                <?php if (isset($_SESSION['msg'])) { ?>
+                    <div class="alert alert-<?= $_SESSION['msg_type'] ?> alert-dismissible fade show" role="alert"
+                        style="z-index:999; ">
+                        <?= $_SESSION['msg'] ?>
+                    </div>
+                    <?php
+                    unset($_SESSION['msg']);
+                    unset($_SESSION['msg_type']);
+                }
+
+                ?>
                 <form action="./Controller/login.php" method="post">
                     <!-- heading -->
                     <h1>Login</h1>
                     <span>Login In with your Account</span>
+
                     <!-- input fields start -->
                     <input type="email" placeholder="Email" name="email">
-                    <?php
-                    if (isset($error)) {
-                        echo "<span style='color:red;'>$error</span>";
-                    }
-
-                    ?>
-
                     <input type="password" placeholder="Password" name="password">
                     <span>Forgot your <span class="forgot">password?</span></span>
                     <button type="submit">Login</button>

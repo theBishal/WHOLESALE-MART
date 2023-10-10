@@ -1,5 +1,6 @@
 <?php
 include '../Model/db.php';
+session_start();
 
 
 $f_name = mysqli_real_escape_string($conn, $_POST['f_name']);
@@ -38,10 +39,12 @@ if (isset($_FILES['image'])) {
 $sql = "INSERT INTO user (f_name,l_name,email,phone_no,password,acc_type,address,store_name,image) VALUES ('$f_name','$l_name','$email','$phone_no','$hash','$acc_type','$address','$store_name','$profileImage')";
 
 if (mysqli_query($conn, $sql)) {
+    $_SESSION['msg'] = "Account created successfully";
+    $_SESSION['msg_type'] = "success";
     header("location: ../register_login.php");
 } else {
-    echo "ERROR: Hush! Sorry $sql. "
-        . mysqli_error($conn);
+    $_SESSION['msg'] = "Error: " . $sql . "<br>" . mysqli_error($conn);
+    $_SESSION['msg_type'] = "danger";
 }
 
 // Close connection

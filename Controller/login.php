@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count == 1) {
         $_SESSION['email'] = $email;
-        $_SESSION['user_id'] = $row['id'];;
+        $_SESSION['user_id'] = $row['id'];
         $_SESSION['f_name'] = $row['f_name'];
         $_SESSION['l_name'] = $row['l_name'];
         $_SESSION['acc_type'] = $row['acc_type'];
@@ -31,10 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("location: ../retailer/index.php");
         }
     } else {
-        $error = "Your Login Email or Password is invalid";
-        header("location: ../register_login.php?error=$error");
+        $_SESSION['msg'] = "Your Login Email or Password is invalid";
+        $_SESSION['msg_type'] = "danger";
+        header("location: ../register_login.php");
     }
 } else {
-    $error = "Your Login Email or Password is invalid";
-    header("location: ../register_login.php?error=$error");
+    $_SESSION['msg'] = "Your Login Email or Password is invalid";
+    $_SESSION['msg_type'] = "danger";
+    header("location: ../register_login.php");
 }

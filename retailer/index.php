@@ -184,6 +184,10 @@ $order_result = mysqli_query($conn, $order_query);
                                                     <tr>
                                                         <th scope="col">Order Id</th>
                                                         <th scope="col">Order Date</th>
+                                                        <th scope="col">Full Name</th>
+                                                        <th scope="col">Address</th>
+                                                        <th scope="col">Payment Method</th>
+                                                        <th scope="col">Note</th>
                                                         <th scope="col">Status</th>
                                                         <th scope="col">Total Amount</th>
                                                         <th scope="col">Action</th>
@@ -197,6 +201,18 @@ $order_result = mysqli_query($conn, $order_query);
                                                             </td>
                                                             <td>
                                                                 <?= $row['order_date'] ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $row['full_name']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $row['address']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $row['payment_method']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $row['note']; ?>
                                                             </td>
                                                             <td>
                                                                 <span

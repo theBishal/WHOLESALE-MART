@@ -36,7 +36,8 @@ $total_price = 0;
 
                     <div class="card">
                         <div class="card-body">
-                            <form method="post" action="checkout-process.php" enctype="multipart/form-data" class="row g-3">
+                            <form method="post" action="checkout-process.php" enctype="multipart/form-data"
+                                class="row g-3">
                                 <div class="col-md-6">
                                     <label for="fname_id" class="form-label">First Name</label>
                                     <input type="text" class="form-control" name="fname" id="fname_id" required>
@@ -51,7 +52,7 @@ $total_price = 0;
                                 </div>
                                 <div class="col-md-6">
                                     <label for="payment_id" class="form-label">Payment Method</label>
-                                    <select class="form-select" name="payment">
+                                    <select class="form-select" name="payment_method">
                                         <option value="cash">Cash</option>
                                         <option value="khalti">Khalti</option>
                                     </select>

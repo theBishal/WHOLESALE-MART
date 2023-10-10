@@ -3,13 +3,17 @@ include '../Model/db.php';
 session_start();
 
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT DISTINCT dealer_id FROM cart_items WHERE user_id = '$user_id'";
+$sql = "SELECT DISTINCT dealer_id, product_id, quantity FROM cart_items WHERE user_id = '$user_id'";
 $result = mysqli_query($conn, $sql);
+
+$full_name = $_POST['fname'] . " " . $_POST['lname'];
+$address = $_POST['address'];
+$payment_method = $_POST['payment_method'];
+$note = $_POST['note'];
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $dealer_id = $row['dealer_id'];
 
-    // Calculate the total order amount for items associated with the same dealer
     $total_amount = 0;
 
     $order_items_query = "SELECT * FROM cart_items WHERE user_id = '$user_id' AND dealer_id = '$dealer_id'";
@@ -20,7 +24,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     }
 
     // Insert a new order
-    $order_insert_query = "INSERT INTO orders (user_id, dealer_id, total_amount, status) VALUES ('$user_id', '$dealer_id', '$total_amount', 'Pending')";
+    $order_insert_query = "INSERT INTO orders (user_id, dealer_id, full_name, address, payment_method, note, total_amount, status) VALUES ('$user_id', '$dealer_id', '$full_name', '$address', '$payment_method', '$note', '$total_amount', 'Pending')";
     mysqli_query($conn, $order_insert_query);
 
     // Get the newly inserted order's ID
@@ -33,7 +37,10 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                      WHERE user_id = '$user_id' AND dealer_id = '$dealer_id'";
 
     if (mysqli_query($conn, $move_items_query)) {
-        // Delete cart items for the same dealer
+        $select_product = "SELECT product_id, quantity FROM cart_items WHERE user_id = '$user_id' AND dealer_id = '$dealer_id'";
+        $result_product = mysqli_query($conn, $select_product);
+        $update_product = "UPDATE product SET stock = stock - $row[quantity] WHERE id = $row[product_id]";
+        mysqli_query($conn, $update_product);
         $clear_cart_query = "DELETE FROM cart_items WHERE user_id = '$user_id' AND dealer_id = '$dealer_id'";
         mysqli_query($conn, $clear_cart_query);
     } else {
