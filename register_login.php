@@ -98,7 +98,6 @@ if (isset($_GET['error'])) {
                     <!-- input fields start -->
                     <input type="email" placeholder="Email" name="email">
                     <input type="password" placeholder="Password" name="password">
-                    <span>Forgot your <span class="forgot">password?</span></span>
                     <button type="submit">Login</button>
                     <!-- input fields end -->
                 </form>
